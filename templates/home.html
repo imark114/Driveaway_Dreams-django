@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static "css/style.css" %} ">
+{% endblock css %}
+{% block content %}
+<div class="d-flex hero_section">
+    <div class="hero_left col-md-6">
+        <h1>Import Your Dream Car from Heare</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti iste excepturi impedit commodi quod officia repudiandae optio. Accusamus beatae sint commodi. Velit deleniti quia debitis architecto optio esse et quos neque odio necessitatibus ipsa harum molestiae exercitationem sed, corrupti non. In hic error modi necessitatibus officiis rerum, eveniet perspiciatis consequuntur.</p>
+        <button class="btn btn-info btn-lg text-white">Explore</button>
+    </div>
+    <div class="col-md-6">
+        <img class="banar_img" src="{% static "images/car.jpg" %} " alt="">
+    </div>
+</div>
+
+<div class="d-flex flex-wrap justify-content-around category_section">
+    {% for cat in category %}
+    <div class="category_box">
+        <a href=" {% url "brand_wise_cars" cat.slug  %} ">{{cat.name}}</a>
+    </div>
+    {% endfor %}
+</div>
+<h3 class="p-5">Total Car Found {{cars | length}} </h3>
+<div class="mt-5 row px-5" style="witdh:80%; margin:auto;">
+    {% for car in cars %}
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <img src="{{car.image.url}}" class="card-img-top" alt="Car">
+            <div class="card-body">
+              <h5 class="card-title">{{car.name}}</h5>
+              <p class="card-text">Price: {{car.price}}</p>
+              <p class="card-text">Brand: {{car.brand.name}}</p>
+              <a href=" {% url "car_details" car.id %} " class="btn btn-info text-white">View Details</a>
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

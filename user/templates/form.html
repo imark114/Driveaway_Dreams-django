@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+    <form method="POST" style="width:50%; margin:auto; background-color: #eff6fb;" class="mt-5 shadow p-4 rounded">
+        {% csrf_token %}
+        <h1>{{type}} Page</h1>
+        {{form | crispy}}
+        <input class="btn btn-info fs-5" type="submit" value="{{type}}">
+    </form>
+    <div class="mt-4" style="width:50%; margin:auto;">
+        {% if type == 'Update' %}
+    <a class="btn btn-danger" href=" {% url "pass_change" %} ">Change Password</a>
+    {% endif %}
+    </div>
+{% endblock content %}
+

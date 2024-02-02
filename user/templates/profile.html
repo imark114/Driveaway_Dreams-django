@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<a class="btn btn-warning m-5" href=" {% url "update_profile" %} ">Edit Profile</a>
+<h2 class="p-5">You bought these cars:</h2>
+<div class="mt-5 row px-5" style="witdh:80%; margin:auto;">
+    {% for car in cars %}
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <img src="{{car.car.image.url}}" class="card-img-top" alt="Car">
+            <div class="card-body">
+              <h5 class="card-title">{{car.car.name}}</h5>
+              <p class="card-text">Price: {{car.car.price}}</p>
+              <p class="card-text">Brand: {{car.car.brand.name}}</p>
+              <a href=" {% url "car_details" car.car.id %} " class="btn btn-info text-white">View Details</a>
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+

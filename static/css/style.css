@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.banar_img{
+    width: 98%;
+    border-radius: 7px;
+}
+.hero_section{
+    height: 80vh;
+    align-items: center;
+    padding: 20px;
+}
+.hero_left{
+    padding-right: 145px;
+}
+
+.category_section{
+    width: 85%;
+    background-color: white;
+    padding: 14px 0px;
+    border-radius: 5px;
+    margin: auto;
+    align-items: center;
+}
+
+.category_box{
+    padding: 5px 20px;
+    background-color: #aabbd3;
+}
+.category_box a{
+    text-decoration: none;
+    color: black;
+}
